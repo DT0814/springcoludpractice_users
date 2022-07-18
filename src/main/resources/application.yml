@@ -15,4 +15,4 @@ spring:
         format_sql: true
         default_schema: users
         order_by.default_null_ordering: last
-        dialect: org.hibernate.dialect.MySQL5Dialect
+        dialect: org.hibernate.dialect.MariaDB53Dialect
