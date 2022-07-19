@@ -7,6 +7,7 @@ import pers.dtao.springcloud.users.service.bo.CreateUserBO
 import pers.dtao.springcloud.users.service.bo.ResponseUserBO
 import pers.dtao.springcloud.users.service.bo.toEntity
 import java.util.*
+import javax.transaction.Transactional
 
 @Service
 class UserServiceImpl(val userRepository: UserRepository) : UserService {
@@ -23,6 +24,7 @@ class UserServiceImpl(val userRepository: UserRepository) : UserService {
         }
     }
 
+    @Transactional
     override fun getUserByPage(): List<ResponseUserBO> {
         return userRepository.findAll().map { ResponseUserBO(id = it.id!!, name = it.name, address = it.address) }
     }

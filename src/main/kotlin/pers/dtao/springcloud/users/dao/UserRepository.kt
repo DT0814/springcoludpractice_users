@@ -7,4 +7,9 @@ import pers.dtao.springcloud.users.dao.entity.UserEntity
 
 @Repository
 @Component
-interface UserRepository : JpaRepository<UserEntity, Long>
+interface UserRepository : JpaRepository<UserEntity, Long> {
+
+    //@ Lock(LockModeType.PESSIMISTIC_WRITE)
+    override fun findAll(): MutableList<UserEntity>
+
+}
